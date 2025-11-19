@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SETBACK (REVÉS) Engine - Navigating Adversity</title>
+    <!-- Load Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom Font */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+        /* Custom styles for line clamping on the cards */
+        .line-clamp-3 {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        /* Gradient for the Setback Title */
+        .setback-gradient {
+            background-image: linear-gradient(45deg, #991b1b, #d97706); /* Dark Red to Amber */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Custom style for active option selection */
+        .option-active {
+            box-shadow: 0 0 0 3px #f59e0b; /* Amber ring effect */
+            background-color: #fffbeb !important;
+            border-color: #fcd34d !important;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header id="app-header" class="bg-slate-900 shadow-xl p-4 sticky top-0 z-10">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 id="home-link-header" class="text-2xl font-extrabold text-white tracking-widest cursor-pointer hover:text-amber-500 transition duration-300">
+                SETBACK (REVÉS) Engine <span class="text-amber-500">⚠️</span>
+            </h1>
+            <nav class="space-x-4">
+                <button id="home-link-nav" class="text-white font-medium hover:text-amber-500 transition duration-300 focus:outline-none">
+                    Home / Modules
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main id="app-content" class="container mx-auto flex-grow p-4 sm:p-6 lg:p-8">
+        <!-- Content will be injected here by JavaScript -->
+        <div class="text-center p-12 text-gray-500">Initializing SETBACK (REVÉS) Engine...</div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 p-4 mt-12">
+        <div class="container mx-auto text-center text-white text-sm">
+            (2025 @ SETBACK (REVÉS) Engine by Daby) - Mastering the Art of Resilience.
+        </div>
+    </footer>
+
+    <script>
+        // --- 1. DATA STRUCTURES (Focused on SETBACKS / REVÉS) ---
+
+        const lessons = [
+            {
+                id: 1,
+                role: 'Tech Developer',
+                level: 'Júnior',
+                title: 'The Technical Impasse: Coding Blockers',
+                description: 'This module analyzes the **setback** of hitting a technical wall (*bater cabeça*). It forces you to confront the gap between your current skill and the problem complexity, often leading to a sensation of paralysis.',
+                kpis: [
+                    { name: 'Setback Metric: Stall Duration', description: 'Measures the time elapsed between encountering the error (*o erro*) and the first successful diagnostic step, quantifying the paralysis phase.' },
+                    { name: 'Setback Metric: Reliance Ratio', description: 'Tracks how often the **setback** (*o travamento*) forces you to depend entirely on senior intervention versus autonomous research.' },
+                ],
+                scenario: {
+                    title: 'The Logic Knot: Alex’s Debugging Nightmare',
+                    steps: [
+                        { id: 1, title: 'The Setback Event', content: 'Alex encounters a recursive error he cannot trace. This is the **setback** (*o enrosco*): a complete halt in productivity and rising panic.', imageAlt: 'Computer screen with infinite error loop' },
+                        { id: 2, title: 'Analyzing the Block', content: 'He measures his **Stall Duration**. He realizes he spent 4 hours staring at the code without running a single isolated test—a classic symptom of the **setback** (*ficar patinando*).', imageAlt: 'Clock ticking rapidly' },
+                        { id: 3, title: 'Breaking the Impasse', content: 'Alex creates a "reproduction script" to isolate the variable. By interacting with the **setback** (*o problema*) systematically, he reduces its magnitude.', imageAlt: 'Magnifying glass over code' },
+                        { id: 4, title: 'Resolution', content: 'The bug is fixed. Alex learned that the true **setback** (*o verdadeiro obstáculo*) was not the code, but his lack of a structured diagnostic process.', imageAlt: 'Green checkmark on screen' },
+                    ],
+                },
+                exercise: [
+                    {
+                        id: 1,
+                        text: "When facing a technical **setback** (*travamento*) where the solution is invisible, what is the most counter-productive reaction?",
+                        options: ["Creating a minimal reproduction case (Investigation)", "Consulting the documentation (Research)", "Randomly changing lines of code hoping it works (The 'Chute' / Guesswork)", "Writing down what you know is true (Analysis)"],
+                        correctAnswerIndex: 2,
+                        explanation: "Randomly guessing (*chutar*) creates new variables and confusion, deepening the **setback** (*piorando o buraco*) rather than solving it. Structured isolation is the only cure for complexity.",
+                    },
+                ],
+            },
+            {
+                id: 2,
+                role: 'Remote Professional',
+                level: 'Sênior',
+                title: 'The Boundary Collapse: Burnout & Intrusion',
+                description: 'Examine the **setback** of personal boundary failure (*perder o limite*). This occurs when professional demands cannibalize personal recovery time, leading to diminishing returns and exhaustion.',
+                kpis: [
+                    { name: 'Setback Metric: Intrusion Frequency', description: 'Counts the number of times work communications invade defined personal hours, quantifying the severity of the boundary **setback** (*a invasão*).' },
+                    { name: 'Setback Metric: Fatigue Accumulation', description: 'A subjective score of tiredness at the start of the day, indicating that the previous day’s **setback** (*o desgaste*) was not fully recovered.' },
+                ],
+                scenario: {
+                    title: 'The Weekend Leak: Sarah’s Boundary Failure',
+                    steps: [
+                        { id: 1, title: 'The Setback Event', content: 'Sarah checks emails on Saturday morning. This seemingly minor action triggers the **setback** (*abrir a porteira*): mental engagement with work stress during recovery time.', imageAlt: 'Phone notification on a weekend' },
+                        { id: 2, title: 'The Ripple Effect', content: 'Her **Fatigue Accumulation** spikes on Monday. Because she didn’t disconnect, she starts the week already in a deficit—a compounding **setback** (*bola de neve*).', imageAlt: 'Battery icon low' },
+                        { id: 3, title: 'Re-establishing the Line', content: 'Sarah implements a rigid "No-Notification" rule. She accepts the minor **setback** of delayed responses to prevent the major **setback** of burnout (*pifar*).', imageAlt: 'Do not disturb sign' },
+                        { id: 4, title: 'Sustained Energy', content: 'She realizes that protecting her time is not selfish; it is the only way to prevent the **setback** of total exhaustion.', imageAlt: 'Shield symbol' },
+                    ],
+                },
+                exercise: [
+                    {
+                        id: 1,
+                        text: "Why is 'checking just one email' on the weekend considered a significant **setback** (*um vacilo*) for a remote professional?",
+                        options: ["It uses up internet bandwidth (Irrelevant)", "It breaks the psychological detachment needed for recovery, maintaining high cortisol levels (Cognitive Leak)", "It makes you look too eager to your boss (Perception)", "It takes too much time to type (Duration)"],
+                        correctAnswerIndex: 1,
+                        explanation: "The **setback** (*o prejuízo*) isn't the time spent typing; it is the mental re-engagement with stress. Breaking the detachment cycle prevents true recovery, leading to long-term burnout.",
+                    },
+                ],
+            },
+            {
+                id: 3,
+                role: 'Team Lead',
+                level: 'Gerente',
+                title: 'The Alignment Fracture: Team Dissent',
+                description: 'Navigate the **setback** of team fragmentation (*o racha na equipe*). This happens when conflicting goals or interpersonal friction stop the flow of value, turning collaboration into competition.',
+                kpis: [
+                    { name: 'Setback Metric: Friction Hours', description: 'The total hours spent arguing or realigning rather than executing. High friction is a clear indicator of an alignment **setback** (*desalinhamento*).' },
+                    { name: 'Setback Metric: Silo Formation Rate', description: 'Observes how quickly team members retreat into isolation during conflict, a defensive reaction to the social **setback** (*climão*).' },
+                ],
+                scenario: {
+                    title: 'The Silent Treatment: Maria’s Team Crisis',
+                    steps: [
+                        { id: 1, title: 'The Setback Event', content: 'Two senior engineers disagree on architecture and stop speaking. This **setback** (*o gelo*) paralyzes the entire project workflow.', imageAlt: 'Two people looking away from each other' },
+                        { id: 2, title: 'Identifying the Cost', content: 'Maria calculates the **Friction Hours**. The team lost 3 days of productivity due to the **setback** of unresolved ego clashes (*briga de ego*).', imageAlt: 'Calendar pages flying off' },
+                        { id: 3, title: 'Forcing the Conversation', content: 'She mediates a session focused strictly on technical trade-offs, removing the personal element from the **setback** (*limpando a área*).', imageAlt: 'Round table discussion' },
+                        { id: 4, title: 'Realignment', content: 'The team realigns. Maria learns that the true **setback** wasn’t the disagreement, but the delay in addressing it (*empurrar com a barriga*).', imageAlt: 'Handshake icon' },
+                    ],
+                },
+                exercise: [
+                    {
+                        id: 1,
+                        text: "In a team environment, what is the most damaging symptom of an unresolved interpersonal **setback** (*conflito mal resolvido*)?",
+                        options: ["Loud arguments in meetings (Visible Conflict)", "The formation of silos and withholding of information (Passive-Aggressive Sabotage)", "People taking longer lunches (Avoidance)", "Excessive documentation (Bureaucracy)"],
+                        correctAnswerIndex: 1,
+                        explanation: "The formation of silos (Passive-Aggressive Sabotage) is the most dangerous **setback** (*o veneno*) because it is invisible, systemic, and actively destroys the collective intelligence of the team.",
+                    },
+                ],
+            },
+            {
+                id: 4,
+                role: 'Startup Founder',
+                level: 'Executivo',
+                title: 'The Market Rejection: Product Failure',
+                description: 'Confront the ultimate business **setback**: the realization that the market does not want your product (*dar com a cara na porta*). This module focuses on pivoting before resources run out.',
+                kpis: [
+                    { name: 'Setback Metric: Churn Velocity', description: 'The rate at which customers are abandoning the product. A high velocity indicates a critical value **setback** (*sangria desatada*).' },
+                    { name: 'Setback Metric: Runway Depletion Rate', description: 'How fast the cash reserve is shrinking relative to revenue growth. This measures the existential threat of the **setback** (*a queima de caixa*).' },
+                ],
+                scenario: {
+                    title: 'The Zero-Growth Quarter: Daniel’s Reality Check',
+                    steps: [
+                        { id: 1, title: 'The Setback Event', content: 'After a major launch, user retention is near zero. Daniel faces the **setback** of market indifference (*o mercado nem piscou*).', imageAlt: 'Graph flatlining near zero' },
+                        { id: 2, title: 'Facing the Data', content: 'He analyzes **Churn Velocity**. The data confirms the **setback** is fundamental: the problem they solved wasn\'t painful enough (*não doía o suficiente*).', imageAlt: 'Magnifying glass on downward trend' },
+                        { id: 3, title: 'The Hard Pivot', content: 'Daniel initiates a pivot. He accepts the **setback** of the wasted launch to save the company from the ultimate **setback** of bankruptcy (*fechar as portas*).', imageAlt: 'Steering wheel turning sharply' },
+                        { id: 4, title: 'Survival', content: 'The new direction gains traction. The lesson: ignoring a market **setback** (*tapar o sol com a peneira*) is fatal; acknowledging it is the only path to survival.', imageAlt: 'Seedling growing through concrete' },
+                    ],
+                },
+                exercise: [
+                    {
+                        id: 1,
+                        text: "When experiencing a severe market **setback** (*rejeição do mercado*), what is the most dangerous reaction for a founder?",
+                        options: ["Cutting costs immediately (Prudence)", "Doubling down on marketing for the failed product (The Sunk Cost Fallacy / 'Insistir no erro')", "Interviewing customers to understand why they left (Curiosity)", "Pivoting to a new feature set (Adaptation)"],
+                        correctAnswerIndex: 1,
+                        explanation: "Doubling down on a product the market has rejected is the Sunk Cost Fallacy (*insistir no erro*). It accelerates the **setback**, burning remaining resources on a proven failure instead of finding a new path.",
+                    },
+                ],
+            },
+            {
+                id: 5,
+                role: 'Political Strategist',
+                level: 'Líder Público',
+                title: 'The Public Defeat: Scandal & Loss of Trust',
+                description: 'Analyze the **setback** of losing public confidence (*cair em desgraça*). Whether through an election loss or a scandal, this involves managing perception and the rapid erosion of political capital.',
+                kpis: [
+                    { name: 'Setback Metric: Negative Sentiment Surge', description: 'Tracks the volume and intensity of negative public discourse. A spike indicates an uncontrolled reputation **setback** (*a crise escalou*).' },
+                    { name: 'Setback Metric: Ally Defection Rate', description: 'Measures how quickly key supporters distance themselves. High defection signals a terminal political **setback** (*o barco está afundando*).' },
+                ],
+                scenario: {
+                    title: 'The Bill Rejection: The Senator’s Crisis',
+                    steps: [
+                        { id: 1, title: 'The Setback Event', content: 'A flagship bill is voted down overwhelmingly. The Senator suffers a humiliating public **setback** (*uma derrota acachapante*).', imageAlt: 'Gavel banging on a desk' },
+                        { id: 2, title: 'Analyzing the Damage', content: 'The **Negative Sentiment Surge** is high. The narrative is that he is ineffective. This **setback** (*esse desgaste*) threatens his re-election.', imageAlt: 'Social media icons with angry faces' },
+                        { id: 3, title: 'Reframing the Narrative', content: 'He creates a new coalition. Instead of fighting the **setback**, he frames it as "listening to the people" (*fazer do limão uma limonada*), pivoting his stance.', imageAlt: 'Microphone and press conference' },
+                        { id: 4, title: 'Stabilization', content: 'By accepting the **setback** quickly, he stopped the **Ally Defection Rate**. He survived to fight another day.', imageAlt: 'Anchor stabilizing a ship' },
+                    ],
+                },
+                exercise: [
+                    {
+                        id: 1,
+                        text: "In a political context, what distinguishes a survivable **setback** (*um tropeço*) from a fatal one?",
+                        options: ["The amount of money lost (Financials)", "The speed and sincerity of the response (Control of Narrative / 'Controle de Danos')", "The number of opponents (Opposition)", "The time of year it happens (Timing)"],
+                        correctAnswerIndex: 1,
+                        explanation: "A **setback** becomes fatal if the narrative spins out of control. A fast, sincere response (Control of Narrative / *Controle de Danos*) defines the event before opponents can, turning a crisis into a managed incident.",
+                    },
+                ],
+            },
+        ];
+
+        // --- 2. GLOBAL STATE AND NAVIGATION ---
+        const AppState = {
+            currentPageId: null, // null for Home, ID for Lesson Detail
+            scenarioSteps: {} // Stores the current step for each lesson ID
+        };
+
+        const appContent = document.getElementById('app-content');
+
+        // --- 3. RENDERING FUNCTIONS ---
+
+        const renderHowToUse = () => {
+             return `
+                <section class="bg-slate-100 p-6 rounded-xl shadow-inner border border-slate-300 mt-8">
+                    <h3 class="text-3xl font-extrabold text-slate-800 mb-4 flex items-center">
+                        <span class="mr-3 text-4xl">🛡️</span> Understanding the SETBACK (REVÉS) Engine
+                    </h3>
+                    <p class="text-lg text-slate-700 mb-6 font-semibold">
+                        Success is not a straight line. This engine helps you analyze and navigate the inevitable **Setback** (*o Revés, o Obstáculo*)—the moment when progress stops or reverses.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Step 1 -->
+                        <div class="bg-white p-4 rounded-lg shadow-md border-t-4 border-red-600">
+                            <h4 class="font-bold text-xl text-red-800 mb-2">1. Acknowledge the Setback (O Tombo)</h4>
+                            <p class="text-gray-600 text-sm">Select the module that matches your current crisis. Denying the **setback** (*tapar o sol com a peneira*) only increases the damage.</p>
+                        </div>
+                        <!-- Step 2 -->
+                        <div class="bg-white p-4 rounded-lg shadow-md border-t-4 border-amber-500">
+                            <h4 class="font-bold text-xl text-amber-800 mb-2">2. Measure the Damage (O Prejuízo)</h4>
+                            <p class="text-gray-600 text-sm">Use the **Setback Metrics** to quantify the loss. Is it time? Trust? Money? You cannot fix a **setback** you haven't measured.</p>
+                        </div>
+                        <!-- Step 3 -->
+                        <div class="bg-white p-4 rounded-lg shadow-md border-t-4 border-green-600">
+                            <h4 class="font-bold text-xl text-green-800 mb-2">3. Execute the Pivot (A Virada)</h4>
+                            <p class="text-gray-600 text-sm">Walk through the scenarios to see how professionals turn a **setback** (*uma derrota*) into a strategic pivot.</p>
+                        </div>
+                    </div>
+                </section>
+            `;
+        }
+
+        const renderHome = () => {
+            const lessonCards = lessons.map(lesson => {
+                // Simple color mapping based on role/level strings
+                let borderColor = 'border-gray-400';
+                let badgeBg = 'bg-gray-200';
+                let badgeText = 'text-gray-800';
+
+                if (lesson.level === 'Executivo' || lesson.level.includes('Líder')) {
+                    borderColor = 'border-red-600';
+                    badgeBg = 'bg-red-100';
+                    badgeText = 'text-red-800';
+                } else if (lesson.level === 'Gerente') {
+                    borderColor = 'border-amber-500';
+                    badgeBg = 'bg-amber-100';
+                    badgeText = 'text-amber-800';
+                } else if (lesson.level === 'Sênior') {
+                    borderColor = 'border-blue-500';
+                    badgeBg = 'bg-blue-100';
+                    badgeText = 'text-blue-800';
+                }
+
+                return `
+                    <div data-id="${lesson.id}" class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1 border-t-4 ${borderColor} cursor-pointer lesson-card">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-900">${lesson.role}</h3>
+                            <span class="px-3 py-1 text-xs font-semibold rounded-full shadow-sm ${badgeBg} ${badgeText}">
+                                ${lesson.level}
+                            </span>
+                        </div>
+                        <h4 class="text-lg font-medium text-gray-700 mb-3">${lesson.title}</h4>
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-3">${lesson.description}</p>
+                        <div class="text-xs font-semibold text-slate-600 flex items-center mt-2">
+                            Analyze this Setback (*Analisar este Revés*) &rarr;
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            appContent.innerHTML = `
+                <div class="space-y-8">
+                    <header class="text-center py-8 bg-gray-50 rounded-xl shadow-md border-b-4 border-slate-400">
+                        <h2 class="text-5xl font-black mb-2 setback-gradient">
+                            SETBACK (REVÉS) Engine ⚠️
+                        </h2>
+                        <p class="text-xl text-gray-600">
+                            Strategies for confronting, measuring, and overcoming professional adversity.
+                        </p>
+                    </header>
+
+                    ${renderHowToUse()}
+                    
+                    <h3 class="text-3xl font-bold text-slate-700 border-b pb-2 mt-12">Select a Setback (*Revés*) to Navigate</h3>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        ${lessonCards}
+                    </div>
+                </div>
+            `;
+
+            // Event Listeners
+            document.querySelectorAll('.lesson-card').forEach(card => {
+                card.addEventListener('click', (e) => {
+                    const id = parseInt(card.getAttribute('data-id'));
+                    navigateTo(id);
+                });
+            });
+        };
+
+        const renderLessonDetail = (lesson) => {
+            const kpiList = lesson.kpis.map((kpi, index) => `
+                <div key="${index}" class="p-4 border border-gray-200 rounded-lg bg-white shadow-sm">
+                    <p class="font-semibold text-lg text-gray-900 flex items-center">
+                        <span class="text-red-500 mr-2 text-2xl">📉</span> ${kpi.name}
+                    </p>
+                    <p class="text-sm text-gray-600 mt-1">${kpi.description}</p>
+                </div>
+            `).join('');
+
+            appContent.innerHTML = `
+                <div class="space-y-10">
+                    <button id="back-to-list-btn" class="text-slate-600 hover:text-slate-900 transition duration-200 flex items-center mb-6">
+                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                        Back to Dashboard
+                    </button>
+                    
+                    <header class="text-center py-6 bg-slate-800 text-white rounded-xl shadow-xl">
+                        <p class="text-sm font-light uppercase opacity-80">${lesson.role} | Level ${lesson.level}</p>
+                        <h2 class="text-3xl font-black mt-1 mb-2">${lesson.title}</h2>
+                        <p class="text-lg font-medium opacity-90 mx-auto max-w-3xl">
+                            ${lesson.description}
+                        </p>
+                    </header>
+
+                    <div class="bg-white p-6 rounded-xl shadow-xl border-t-4 border-red-500">
+                        <h3 class="text-2xl font-bold text-gray-700 mb-4">Setback (*Revés*) Metrics</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            ${kpiList}
+                        </div>
+                    </div>
+
+                    <div id="scenario-container"></div>
+                    <div id="exercise-container"></div>
+                </div>
+            `;
+
+            document.getElementById('back-to-list-btn').addEventListener('click', () => navigateTo(null));
+
+            renderScenarioStepper(lesson);
+            renderExercise(lesson);
+        };
+
+        const renderScenarioStepper = (lesson) => {
+            const container = document.getElementById('scenario-container');
+            const lessonId = lesson.id;
+            
+            if (AppState.scenarioSteps[lessonId] === undefined) {
+                AppState.scenarioSteps[lessonId] = 0;
+            }
+            let currentStep = AppState.scenarioSteps[lessonId];
+            const totalSteps = lesson.scenario.steps.length;
+            const currentStepData = lesson.scenario.steps[currentStep];
+            const progress = ((currentStep + 1) / totalSteps) * 100;
+
+            container.innerHTML = `
+                <div class="bg-white p-6 rounded-xl shadow-xl border border-gray-200">
+                    <h3 class="text-2xl font-bold mb-4 text-gray-700">The Anatomy of the Setback: ${lesson.scenario.title}</h3>
+                    <p class="text-sm text-gray-500 italic mb-4">Deconstructing the failure to find the path out.</p>
+                    
+                    <div class="mb-6">
+                        <div class="h-2 bg-gray-200 rounded-full">
+                            <div class="h-2 bg-amber-500 rounded-full transition-all duration-500" style="width: ${progress}%"></div>
+                        </div>
+                        <p class="text-right text-sm text-gray-600 mt-1">Phase ${currentStep + 1} of ${totalSteps}</p>
+                    </div>
+                    
+                    <div class="p-4 bg-slate-50 border-l-4 border-red-500 rounded-lg mb-6">
+                        <h4 class="text-xl font-bold mb-3 text-gray-800">${currentStepData.title}</h4>
+                        <p class="text-gray-700 whitespace-pre-line leading-relaxed">${currentStepData.content}</p>
+                    </div>
+                    
+                    <div class="flex justify-between">
+                        <button id="prev-step-btn" 
+                            class="px-4 py-2 rounded-full font-medium transition duration-300 shadow-md text-sm ${currentStep === 0 ? 'bg-gray-300 text-gray-500 cursor-not-allowed' : 'bg-slate-700 text-white hover:bg-slate-800'}"
+                            ${currentStep === 0 ? 'disabled' : ''}>
+                            &larr; Previous
+                        </button>
+                        <button id="next-step-btn" 
+                            class="px-4 py-2 rounded-full font-medium transition duration-300 shadow-md text-sm ${currentStep === totalSteps - 1 ? 'bg-amber-500 text-white cursor-not-allowed' : 'bg-blue-600 text-white hover:bg-blue-700'}"
+                            ${currentStep === totalSteps - 1 ? 'disabled' : ''}>
+                            ${currentStep === totalSteps - 1 ? 'Setback Analyzed!' : 'Next Phase \u2192'}
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('prev-step-btn').addEventListener('click', () => {
+                AppState.scenarioSteps[lessonId] = Math.max(currentStep - 1, 0);
+                renderScenarioStepper(lesson);
+            });
+            document.getElementById('next-step-btn').addEventListener('click', () => {
+                AppState.scenarioSteps[lessonId] = Math.min(currentStep + 1, totalSteps - 1);
+                renderScenarioStepper(lesson);
+            });
+        };
+
+        const renderExercise = (lesson) => {
+            const container = document.getElementById('exercise-container');
+            const lessonId = lesson.id;
+            const questions = lesson.exercise;
+
+            if (!AppState.exerciseState) AppState.exerciseState = {};
+            if (!AppState.exerciseState[lessonId]) {
+                AppState.exerciseState[lessonId] = {
+                    selectedAnswers: Array(questions.length).fill(null),
+                    submitted: false
+                };
+            }
+
+            let state = AppState.exerciseState[lessonId];
+            const score = questions.filter((q, i) => state.selectedAnswers[i] === q.correctAnswerIndex).length;
+            const isComplete = state.selectedAnswers.every(a => a !== null);
+            
+            const handleSelect = (qIndex, aIndex) => {
+                if (state.submitted) return;
+                state.selectedAnswers[qIndex] = aIndex;
+                renderExercise(lesson); 
+            };
+
+            const handleSubmit = () => {
+                state.submitted = true;
+                renderExercise(lesson);
+                document.getElementById('exercise-results')?.scrollIntoView({ behavior: 'smooth' });
+            };
+
+            const handleReset = () => {
+                state.submitted = false;
+                state.selectedAnswers = Array(questions.length).fill(null);
+                renderExercise(lesson); 
+            };
+
+            const scoreDisplay = state.submitted ? `
+                <div id="exercise-results" class="p-4 mb-6 bg-amber-100 border-l-4 border-amber-500 text-amber-900 font-bold text-lg rounded-md">
+                    Analysis Result: ${score}/${questions.length}. Awareness is the first step to overcoming the **Setback** (*o Revés*)!
+                </div>
+            ` : '';
+
+            const questionMarkup = questions.map((q, qIndex) => {
+                const optionsMarkup = q.options.map((option, aIndex) => {
+                    let optionClasses = '';
+                    let prefix = '';
+                    const isSelected = state.selectedAnswers[qIndex] === aIndex;
+                    const isCorrect = q.correctAnswerIndex === aIndex;
+                    
+                    if (!state.submitted) {
+                        optionClasses = isSelected ? 'option-active' : 'hover:bg-gray-200 cursor-pointer';
+                    } else {
+                        if (isCorrect) {
+                            optionClasses = 'bg-green-100 border-green-500 font-bold';
+                            prefix = '✅ ';
+                        } else if (isSelected) {
+                            optionClasses = 'bg-red-100 border-red-500 font-bold opacity-70';
+                            prefix = '❌ ';
+                        } else {
+                            optionClasses = 'bg-gray-100 opacity-50';
+                        }
+                    }
+
+                    return `
+                        <div 
+                            class="p-3 border rounded-lg transition duration-200 text-sm option-select ${optionClasses}"
+                            data-qindex="${qIndex}" 
+                            data-aindex="${aIndex}"
+                            ${state.submitted ? 'style="pointer-events: none;"' : ''}
+                        >
+                            ${prefix}${option}
+                        </div>
+                    `;
+                }).join('');
+
+                const explanationMarkup = state.submitted ? `
+                    <div class="mt-3 text-sm p-3 bg-gray-100 border-l-2 border-slate-500 rounded-br-lg rounded-bl-lg">
+                        <p class="font-bold text-slate-700">Setback Insight (*Lição do Revés*):</p>
+                        <p class="text-gray-600">${q.explanation}</p>
+                    </div>
+                ` : '';
+
+                return `
+                    <div class="mb-8 p-4 border border-gray-200 rounded-lg bg-white shadow-sm">
+                        <p class="font-semibold mb-3 text-lg text-gray-800">
+                            ${qIndex + 1}. ${q.text}
+                        </p>
+                        <div class="space-y-2">
+                            ${optionsMarkup}
+                        </div>
+                        ${explanationMarkup}
+                    </div>
+                `;
+            }).join('');
+            
+            const buttonMarkup = !state.submitted ? `
+                <button
+                    id="submit-quiz-btn"
+                    class="w-full bg-slate-800 text-white font-bold py-3 rounded-lg hover:bg-slate-900 transition duration-300 ${!isComplete ? 'disabled:bg-gray-400 disabled:cursor-not-allowed' : 'shadow-md'}"
+                    ${!isComplete ? 'disabled' : ''}
+                >
+                    Verify Analysis
+                </button>
+            ` : `
+                <button
+                    id="reset-quiz-btn"
+                    class="w-full bg-amber-500 text-white font-bold py-3 rounded-lg hover:bg-amber-600 transition duration-300 shadow-md"
+                >
+                    Re-Analyze Setback
+                </button>
+            `;
+
+            container.innerHTML = `
+                <div class="mt-8 p-6 bg-slate-50 rounded-xl shadow-lg border-t-4 border-slate-400">
+                    <h3 class="text-3xl font-extrabold text-slate-700 mb-6 border-b pb-2">
+                        Test Your Resilience Logic 🧠
+                    </h3>
+                    ${scoreDisplay}
+                    ${questionMarkup}
+                    ${buttonMarkup}
+                </div>
+            `;
+
+            document.querySelectorAll('.option-select').forEach(optionDiv => {
+                optionDiv.addEventListener('click', (e) => {
+                    const qIndex = parseInt(optionDiv.getAttribute('data-qindex'));
+                    const aIndex = parseInt(optionDiv.getAttribute('data-aindex'));
+                    handleSelect(qIndex, aIndex);
+                });
+            });
+
+            if (document.getElementById('submit-quiz-btn')) {
+                document.getElementById('submit-quiz-btn').addEventListener('click', handleSubmit);
+            }
+            if (document.getElementById('reset-quiz-btn')) {
+                document.getElementById('reset-quiz-btn').addEventListener('click', handleReset);
+            }
+        };
+
+        // --- 4. NAVIGATION & INIT ---
+
+        const navigateTo = (id) => {
+            AppState.currentPageId = id;
+            window.scrollTo(0, 0);
+
+            if (id === null) {
+                renderHome();
+            } else {
+                const lesson = lessons.find(l => l.id === id);
+                if (lesson) {
+                    renderLessonDetail(lesson);
+                } else {
+                    appContent.innerHTML = `<div class="text-center p-12 text-red-500 text-xl">Module not found.</div>`;
+                }
+            }
+        };
+
+        window.onload = () => {
+            document.getElementById('home-link-header').addEventListener('click', () => navigateTo(null));
+            document.getElementById('home-link-nav').addEventListener('click', () => navigateTo(null));
+            navigateTo(null);
+        };
+    </script>
+</body>
+</html>
